@@ -62,48 +62,58 @@ public class XMLReader {
             doc.getDocumentElement().normalize();
             String rootElement = doc.getDocumentElement().getNodeName();
             log.debug("Root element: {}", rootElement);
-            
+
             flag = rootElement.equals("Entry") ? flag : true;
-            
+
             if (!flag) {
                 log.debug("flag={}", flag);
-                NodeList nodeLst = doc.getElementsByTagName("Entry");
-                for (int s = 0; s < nodeLst.getLength(); s++) {
-                    Node fstNode = nodeLst.item(s);
-                    if (fstNode.getNodeType() == Node.ELEMENT_NODE) {
-                        Element element = (Element) fstNode;
+                flag = checkAndParseXML(doc, flag);
+            }
+        } catch (Exception e) {
+            log.error("Error parsingXML: {}.", e.toString());
+            flag = true;
+        }
+        return flag;
+    }
 
-                        NodeList contentNmElmntLst = element.getElementsByTagName("content");
-                        Element contentNmElmnt = (Element) contentNmElmntLst.item(0);
-                        NodeList contentNm = contentNmElmnt.getChildNodes();
-                        String content = ((Node) contentNm.item(0)).getNodeValue();
-                        if (content.length() < 1024) {
-                            log.debug("Content : {}", content);
-                        } else {
-                            log.debug("Cтрока content длиной больше 1024 символов!");
-                            flag = true;
-                            break;
-                        }
+    private static boolean checkAndParseXML(Document doc, boolean flag) {
+        try {
+            NodeList nodeLst = doc.getElementsByTagName("Entry");
+            for (int s = 0; s < nodeLst.getLength(); s++) {
+                Node fstNode = nodeLst.item(s);
+                if (fstNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element element = (Element) fstNode;
 
-                        NodeList dateNmElmntLst = element.getElementsByTagName("creationDate");
-                        Element dateNmElmnt = (Element) dateNmElmntLst.item(0);
-                        NodeList dateNm = dateNmElmnt.getChildNodes();
-                        String creationDate = ((Node) dateNm.item(0)).getNodeValue();
-                        log.debug("Creation date : {}", creationDate);
-                        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                        dateFormat.setLenient(false);
-                        try {
-                            log.debug("Date VALID is: {}", dateFormat.format(dateFormat.parse(creationDate)));
-                        } catch (Exception e) {
-                            log.debug("Неккоректный формат даты создания записи!");
-                            flag = true;
-                            break;
-                        }
+                    NodeList contentNmElmntLst = element.getElementsByTagName("content");
+                    Element contentNmElmnt = (Element) contentNmElmntLst.item(0);
+                    NodeList contentNm = contentNmElmnt.getChildNodes();
+                    String content = ((Node) contentNm.item(0)).getNodeValue();
+                    if (content.length() < 1024) {
+                        log.debug("Content : {}", content);
+                    } else {
+                        log.debug("Cтрока content длиной больше 1024 символов!");
+                        flag = true;
+                        break;
+                    }
+
+                    NodeList dateNmElmntLst = element.getElementsByTagName("creationDate");
+                    Element dateNmElmnt = (Element) dateNmElmntLst.item(0);
+                    NodeList dateNm = dateNmElmnt.getChildNodes();
+                    String creationDate = ((Node) dateNm.item(0)).getNodeValue();
+                    log.debug("Creation date : {}", creationDate);
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    dateFormat.setLenient(false);
+                    try {
+                        log.debug("Date VALID is: {}", dateFormat.format(dateFormat.parse(creationDate)));
+                    } catch (Exception e) {
+                        log.debug("Неккоректный формат даты создания записи!");
+                        flag = true;
+                        break;
                     }
                 }
             }
         } catch (Exception e) {
-            log.error("Error: {}.", e.toString());
+            log.error("Error checkAndParseXML: {}.", e.toString());
             flag = true;
         }
         return flag;
