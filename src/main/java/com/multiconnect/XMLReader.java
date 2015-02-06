@@ -26,20 +26,22 @@ public class XMLReader {
 
     public static void main(String argv[]) throws IOException {
         PropertyConfigurator.configure("log4j.properties");
-        String patch = "/home/DN270791NDI/NetBeansProjects/MultiConnectMaven/TestXML";
-        log.debug("patch=" + patch);
-        parseAllFiles(patch);
+        File file = new File(System.getProperty("user.dir"));
+        String parentDirectory = file.getAbsolutePath() + "/TestXML",
+                newDirectory = file.getAbsolutePath() + "/GoodXML";
+        log.debug("parentDirectory={}, \n newDirectory={}", parentDirectory, newDirectory);
+        parseAllFiles(parentDirectory, newDirectory);
     }
 
-    public static void parseAllFiles(String parentDirectory) throws IOException {
+    public static void parseAllFiles(String parentDirectory, String newDirectory) throws IOException {
         File[] filesInDirectory = new File(parentDirectory).listFiles();
-        File dir = new File("/home/DN270791NDI/NetBeansProjects/MultiConnectMaven/GoodXML");
+        File dir = new File(newDirectory);
         dir.mkdirs();
         log.debug("dir={}", dir);
         for (File file : filesInDirectory) {
             if (file.isDirectory()) {
                 log.debug("Name directory={}", file.getName());
-                parseAllFiles(file.getAbsolutePath());
+                parseAllFiles(file.getAbsolutePath(), newDirectory);
             } else if (file.isFile()) {
                 log.debug("Name file={}", file.getName());
                 if (!parsingXML(file.getAbsolutePath())) {
@@ -52,7 +54,7 @@ public class XMLReader {
         }
     }
 
-    public static boolean parsingXML(String nameFile) {
+    private static boolean parsingXML(String nameFile) {
         boolean flag = false;
         try {
             File file = new File(nameFile);
