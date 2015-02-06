@@ -4,8 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -13,7 +13,7 @@ import org.w3c.dom.NodeList;
 
 public class XMLReader {
     
-    static final Logger log = Logger.getLogger(XMLReader.class);
+    static final org.slf4j.Logger log = LoggerFactory.getLogger(XMLReader.class);
 
     public static void main(String argv[]) throws IOException {
         //PropertiesConfigurator is used to configure log from properties file
@@ -28,13 +28,13 @@ public class XMLReader {
         File[] filesInDirectory = new File(parentDirectory).listFiles();
         File dir = new File("/home/DN270791NDI/NetBeansProjects/MultiConnectMaven/GoodXML");
         dir.mkdirs();
-        log.debug("dir=." + dir);
+        log.debug("dir={}", dir);
         for (File file : filesInDirectory) {
             if (file.isDirectory()) {
-                log.debug("Name directory=" + file.getName());
+                log.debug("Name directory={}", file.getName());
                 parseAllFiles(file.getAbsolutePath());
             } else if (file.isFile()) {
-                log.debug("Name file=" + file.getName());
+                log.debug("Name file={}", file.getName());
                 parsingXML(file.getAbsolutePath());
                 file.renameTo(new File(dir, file.getName()));
             }
@@ -48,7 +48,7 @@ public class XMLReader {
             DocumentBuilder db = dbf.newDocumentBuilder();
             Document doc = db.parse(file);
             doc.getDocumentElement().normalize();
-            log.debug("Root element " + doc.getDocumentElement().getNodeName());
+            log.debug("Root element: {}", doc.getDocumentElement().getNodeName());
 
             NodeList nodeLst = doc.getElementsByTagName("Entry");
             for (int s = 0; s < nodeLst.getLength(); s++) {
@@ -61,7 +61,7 @@ public class XMLReader {
                     NodeList contentNm = contentNmElmnt.getChildNodes();
                     String content = ((Node) contentNm.item(0)).getNodeValue();
                     if (content.length() < 1024) {
-                        log.debug("Content : " + content);
+                        log.debug("Content : {}", content);
                     } else {
                         log.debug("Cтрока content длиной больше 1024 символов.");
                     }
@@ -69,11 +69,11 @@ public class XMLReader {
                     NodeList dateNmElmntLst = element.getElementsByTagName("creationDate");
                     Element dateNmElmnt = (Element) dateNmElmntLst.item(0);
                     NodeList dateNm = dateNmElmnt.getChildNodes();
-                    log.debug("Creation date : " + ((Node) dateNm.item(0)).getNodeValue());
+                    log.debug("Creation date : {}", ((Node) dateNm.item(0)).getNodeValue());
                 }
             }
         } catch (Exception e) {
-            log.error(e);
+            log.error("Error: {}.", e.toString());
         }
     }
 
