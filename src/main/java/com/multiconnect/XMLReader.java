@@ -2,6 +2,8 @@ package com.multiconnect;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.apache.log4j.PropertyConfigurator;
@@ -12,16 +14,16 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
- * Class that read xml file from directory and move this xml file in new directory
- * 
+ * Class that read xml file from directory and move this xml file in new
+ * directory
+ *
  * @author Novikov Dmitry
  */
 public class XMLReader {
-    
+
     static final org.slf4j.Logger log = LoggerFactory.getLogger(XMLReader.class);
 
     public static void main(String argv[]) throws IOException {
-        //PropertiesConfigurator is used to configure log from properties file
         PropertyConfigurator.configure("log4j.properties");
         String patch = "/home/DN270791NDI/NetBeansProjects/MultiConnectMaven/TestXML";
         log.debug("patch=" + patch);
@@ -80,7 +82,17 @@ public class XMLReader {
                     NodeList dateNmElmntLst = element.getElementsByTagName("creationDate");
                     Element dateNmElmnt = (Element) dateNmElmntLst.item(0);
                     NodeList dateNm = dateNmElmnt.getChildNodes();
-                    log.debug("Creation date : {}", ((Node) dateNm.item(0)).getNodeValue());
+                    String creationDate = ((Node) dateNm.item(0)).getNodeValue();
+                    log.debug("Creation date : {}", creationDate);
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    dateFormat.setLenient(false);
+                    try {
+                        log.debug("Date VALID is: {}", dateFormat.format(dateFormat.parse(creationDate)));
+                    } catch (Exception e) {
+                        log.debug("Неккоректный формат даты создания записи!");
+                        flag = true;
+                        break;
+                    }
                 }
             }
         } catch (Exception e) {
