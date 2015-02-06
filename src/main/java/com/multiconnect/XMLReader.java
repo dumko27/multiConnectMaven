@@ -11,6 +11,11 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * Class that read xml file from directory and move this xml file in new directory
+ * 
+ * @author Novikov Dmitry
+ */
 public class XMLReader {
     
     static final org.slf4j.Logger log = LoggerFactory.getLogger(XMLReader.class);
@@ -18,7 +23,6 @@ public class XMLReader {
     public static void main(String argv[]) throws IOException {
         //PropertiesConfigurator is used to configure log from properties file
         PropertyConfigurator.configure("log4j.properties");
-        log.info("Log4j appender configuration is successful");
         String patch = "/home/DN270791NDI/NetBeansProjects/MultiConnectMaven/TestXML";
         log.debug("patch=" + patch);
         parseAllFiles(patch);
@@ -35,13 +39,18 @@ public class XMLReader {
                 parseAllFiles(file.getAbsolutePath());
             } else if (file.isFile()) {
                 log.debug("Name file={}", file.getName());
-                parsingXML(file.getAbsolutePath());
-                file.renameTo(new File(dir, file.getName()));
+                if (!parsingXML(file.getAbsolutePath())) {
+                    log.debug("OK");
+                    file.renameTo(new File(dir, file.getName()));
+                } else {
+                    log.debug("NO OK");
+                }
             }
         }
     }
 
-    public static void parsingXML(String nameFile) {
+    public static boolean parsingXML(String nameFile) {
+        boolean flag = false;
         try {
             File file = new File(nameFile);
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -64,6 +73,8 @@ public class XMLReader {
                         log.debug("Content : {}", content);
                     } else {
                         log.debug("Cтрока content длиной больше 1024 символов.");
+                        flag = true;
+                        break;
                     }
 
                     NodeList dateNmElmntLst = element.getElementsByTagName("creationDate");
@@ -75,6 +86,7 @@ public class XMLReader {
         } catch (Exception e) {
             log.error("Error: {}.", e.toString());
         }
+        return flag;
     }
 
 }
