@@ -4,20 +4,23 @@ import java.io.File;
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class XMLReader {
+    
+    static final Logger log = Logger.getLogger(XMLReader.class);
 
     public static void main(String argv[]) throws IOException {
-        Logger logger = LoggerFactory.getLogger(XMLReader.class);
+        //PropertiesConfigurator is used to configure log from properties file
+        PropertyConfigurator.configure("log4j.properties");
+        log.info("Log4j appender configuration is successful");
         String patch = "/home/DN270791NDI/NetBeansProjects/MultiConnectMaven/TestXML";
-        logger.debug("patch={}.", patch);
-        logger.info("patch={}.", patch);
+        log.debug("patch=" + patch);
         parseAllFiles(patch);
     }
 
@@ -25,12 +28,13 @@ public class XMLReader {
         File[] filesInDirectory = new File(parentDirectory).listFiles();
         File dir = new File("/home/DN270791NDI/NetBeansProjects/MultiConnectMaven/GoodXML");
         dir.mkdirs();
+        log.debug("dir=." + dir);
         for (File file : filesInDirectory) {
             if (file.isDirectory()) {
-                System.out.println("Name directory=" + file.getName());
+                log.debug("Name directory=" + file.getName());
                 parseAllFiles(file.getAbsolutePath());
             } else if (file.isFile()) {
-                System.out.println("Name file=" + file.getName());
+                log.debug("Name file=" + file.getName());
                 parsingXML(file.getAbsolutePath());
                 file.renameTo(new File(dir, file.getName()));
             }
@@ -44,7 +48,7 @@ public class XMLReader {
             DocumentBuilder db = dbf.newDocumentBuilder();
             Document doc = db.parse(file);
             doc.getDocumentElement().normalize();
-            System.out.println("Root element " + doc.getDocumentElement().getNodeName());
+            log.debug("Root element " + doc.getDocumentElement().getNodeName());
 
             NodeList nodeLst = doc.getElementsByTagName("Entry");
             for (int s = 0; s < nodeLst.getLength(); s++) {
@@ -57,19 +61,19 @@ public class XMLReader {
                     NodeList contentNm = contentNmElmnt.getChildNodes();
                     String content = ((Node) contentNm.item(0)).getNodeValue();
                     if (content.length() < 1024) {
-                        System.out.println("Content : " + content);
+                        log.debug("Content : " + content);
                     } else {
-                        System.out.println("Cтрока content длиной больше 1024 символов.");
+                        log.debug("Cтрока content длиной больше 1024 символов.");
                     }
 
                     NodeList dateNmElmntLst = element.getElementsByTagName("creationDate");
                     Element dateNmElmnt = (Element) dateNmElmntLst.item(0);
                     NodeList dateNm = dateNmElmnt.getChildNodes();
-                    System.out.println("Creation date : " + ((Node) dateNm.item(0)).getNodeValue());
+                    log.debug("Creation date : " + ((Node) dateNm.item(0)).getNodeValue());
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e);
         }
     }
 
