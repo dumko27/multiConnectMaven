@@ -22,6 +22,37 @@
 [main] DEBUG com.multiconnect.XMLReader  - Name file=testNotEntry.xml
 [main] DEBUG com.multiconnect.XMLReader  - Root element: NotEntry
 [main] DEBUG com.multiconnect.XMLReader  - File is NOT moved
+[main] DEBUG com.multiconnect.XMLReader  - Name directory=1TestXML
+[main] DEBUG com.multiconnect.XMLReader  - dir=/home/DN270791NDI/NetBeansProjects/MultiConnectMaven/GoodXML
+[main] DEBUG com.multiconnect.XMLReader  - Name file=1testNotEntry.xml
+[main] DEBUG com.multiconnect.XMLReader  - Root element: NotEntry
+[main] DEBUG com.multiconnect.XMLReader  - File is NOT moved
+[main] DEBUG com.multiconnect.XMLReader  - Name file=1testEntry99.xml
+[main] DEBUG com.multiconnect.XMLReader  - Root element: Entry
+[main] DEBUG com.multiconnect.XMLReader  - flag=false
+[main] DEBUG com.multiconnect.XMLReader  - Content : Содержимое записи1
+[main] DEBUG com.multiconnect.XMLReader  - Creation date : 9999-12-32 00:00:00
+[main] DEBUG com.multiconnect.XMLReader  - Неккоректный формат даты создания записи!
+[main] DEBUG com.multiconnect.XMLReader  - File is NOT moved
+[main] DEBUG com.multiconnect.XMLReader  - Name file=1testNoCorrectDate.xml
+[main] DEBUG com.multiconnect.XMLReader  - Root element: Entry
+[main] DEBUG com.multiconnect.XMLReader  - flag=false
+[main] DEBUG com.multiconnect.XMLReader  - Content : Содержимое записи2
+[main] DEBUG com.multiconnect.XMLReader  - Creation date : 2012-02-02
+[main] DEBUG com.multiconnect.XMLReader  - Неккоректный формат даты создания записи!
+[main] DEBUG com.multiconnect.XMLReader  - File is NOT moved
+[main] DEBUG com.multiconnect.XMLReader  - Name file=1testNoCorrectContent.xml
+[main] DEBUG com.multiconnect.XMLReader  - Root element: Entry
+[main] DEBUG com.multiconnect.XMLReader  - flag=false
+[main] DEBUG com.multiconnect.XMLReader  - Cтрока content длиной больше 1024 символов!
+[main] DEBUG com.multiconnect.XMLReader  - File is NOT moved
+[main] DEBUG com.multiconnect.XMLReader  - Name file=1testEntry.xml
+[main] DEBUG com.multiconnect.XMLReader  - Root element: Entry
+[main] DEBUG com.multiconnect.XMLReader  - flag=false
+[main] DEBUG com.multiconnect.XMLReader  - Content : Содержимое записи1
+[main] DEBUG com.multiconnect.XMLReader  - Creation date : 2011-01-01 00:00:00
+[main] DEBUG com.multiconnect.XMLReader  - Date VALID is: 2011-01-01 00:00:00
+[main] DEBUG com.multiconnect.XMLReader  - File is moved
 [main] DEBUG com.multiconnect.XMLReader  - Name file=testNoCorrectDate.xml
 [main] DEBUG com.multiconnect.XMLReader  - Root element: Entry
 [main] DEBUG com.multiconnect.XMLReader  - flag=false
