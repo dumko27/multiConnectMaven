@@ -1,21 +1,13 @@
 package com.multiconnect;
 
 import com.multiconnect.mapping.Entry;
-import java.io.File;
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.*;
+import java.text.*;
+import java.util.*;
+import javax.xml.parsers.*;
 import org.apache.log4j.PropertyConfigurator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.slf4j.*;
+import org.w3c.dom.*;
 
 /**
  * Class that read xml file from directory and move this xml file in new
@@ -118,6 +110,9 @@ public class Main {
                         log.debug("entry: {}.", entry);
                         
                         Factory.getInstance().getEntryDAO().addEnties(entry);
+                        
+                        Collection entries = Factory.getInstance().getEntryDAO().getEntries();
+                        log.debug("entries: {}.", entries);
                         
                         listEntry.add(entry);
                         log.debug("listEntry: {}.", listEntry);

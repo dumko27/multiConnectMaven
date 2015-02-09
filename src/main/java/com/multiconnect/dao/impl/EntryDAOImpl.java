@@ -4,16 +4,16 @@ import com.multiconnect.dao.EntryDAO;
 import com.multiconnect.mapping.Entry;
 import com.multiconnect.util.HibernateUtil;
 import java.sql.SQLException;
+import java.util.*;
 import org.hibernate.Session;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.*;
 
 /**
  *
  * @author Novikov Dmitry
  */
 public class EntryDAOImpl implements EntryDAO {
-    
+
     static final Logger log = LoggerFactory.getLogger(EntryDAOImpl.class);
 
     @Override
@@ -33,5 +33,21 @@ public class EntryDAOImpl implements EntryDAO {
             }
         }
     }
-    
+
+    public Collection getEntries() throws SQLException {
+        Session session = null;
+        List entries = new ArrayList<Entry>();
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            entries = session.createCriteria(Entry.class).list();
+        } catch (Exception e) {
+            log.error("Ошибка при получении: {}.", e.getMessage());
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return entries;
+    }
+
 }

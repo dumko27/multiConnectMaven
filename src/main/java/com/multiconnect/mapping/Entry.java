@@ -14,22 +14,22 @@ import org.hibernate.annotations.Type;
  *
  * @author Novikov Dmitry
  */
-//@Entity
+@Entity
 public class Entry implements Serializable {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     /**
      * Cтрока длиной до 1024 символов.
      */
-    //@Column(name = "content", length = 1024)
+    @Column(name = "content", length = 1024)
     private String content;
     /**
      * Дата создания записи.
      */
-//    @Column(name = "creationDate")
-//    @Type(type="date")
+    @Column(name = "creationDate")
+    @Type(type="date")
     private Date creationDate;
 
     public Entry() {
