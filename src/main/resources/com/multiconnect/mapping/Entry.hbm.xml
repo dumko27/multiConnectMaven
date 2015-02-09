@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.multiconnect.mapping">
     <class name="Entry" table="Entries">
-        <id name="id"                 column="id"     type="long">
+        <id name="id"                 column="id"           type="long">
             <generator class="native"/>                       
         </id>
         <property name="content"      column="content"      type="string"/>

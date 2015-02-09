@@ -35,10 +35,10 @@ public class Main {
     }
 
     private void runExample() throws IOException {
-        PropertyConfigurator.configure("log4j.properties");
+        PropertyConfigurator.configure("src/main/resources/log4j.properties");
         File file = new File(System.getProperty("user.dir"));
-        String parentDirectory = file.getAbsolutePath() + "/TestXML",
-                newDirectory = file.getAbsolutePath() + "/GoodXML";
+        String parentDirectory = file.getAbsolutePath() + "/src/test/resources/TestXML",
+                newDirectory = file.getAbsolutePath() + "/src/test/resources/GoodXML";
         log.debug("parentDirectory={}, \n newDirectory={}", parentDirectory, newDirectory);
         parseAllFiles(parentDirectory, newDirectory);
         log.debug("END listEntry: {}.", listEntry);
