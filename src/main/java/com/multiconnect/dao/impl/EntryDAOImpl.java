@@ -18,6 +18,7 @@ public class EntryDAOImpl implements EntryDAO {
 
     @Override
     public void addEnties(Entry entry) throws SQLException {
+        log.debug("addEnties entry={}.", entry);
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
