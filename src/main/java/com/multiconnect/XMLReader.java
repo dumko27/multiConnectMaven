@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.apache.log4j.PropertyConfigurator;
@@ -23,6 +25,7 @@ import org.w3c.dom.NodeList;
 public class XMLReader {
 
     static final Logger log = LoggerFactory.getLogger(XMLReader.class);
+    List<Entry> listEntry = new ArrayList<>();
 
     public static void main(String argv[]) throws IOException {
         XMLReader xMLReader = new XMLReader();
@@ -36,6 +39,7 @@ public class XMLReader {
                 newDirectory = file.getAbsolutePath() + "/GoodXML";
         log.debug("parentDirectory={}, \n newDirectory={}", parentDirectory, newDirectory);
         parseAllFiles(parentDirectory, newDirectory);
+        log.debug("END listEntry: {}.", listEntry);
 
     }
 
@@ -93,11 +97,18 @@ public class XMLReader {
                     Element element = (Element) fstNode;
                     String content = getBody(element, "content");
                     flag = checkContent(content);
+                    String creationDate = null;
                     if (!flag) {
-                        String creationDate = getBody(element, "creationDate");
+                        creationDate = getBody(element, "creationDate");
                         flag = checkCreationDate(creationDate);
                     } else {
                         break;
+                    }
+                    if (!flag) {
+                        Entry entry = new Entry(content, creationDate);
+                        log.debug("entry: {}.", entry);
+                        listEntry.add(entry);
+                        log.debug("listEntry: {}.", listEntry);
                     }
                 }
             }
