@@ -25,15 +25,21 @@ public class XMLReader {
     static final Logger log = LoggerFactory.getLogger(XMLReader.class);
 
     public static void main(String argv[]) throws IOException {
+        XMLReader xMLReader = new XMLReader();
+        xMLReader.runExample();
+    }
+
+    public void runExample() throws IOException {
         PropertyConfigurator.configure("log4j.properties");
         File file = new File(System.getProperty("user.dir"));
         String parentDirectory = file.getAbsolutePath() + "/TestXML",
                 newDirectory = file.getAbsolutePath() + "/GoodXML";
         log.debug("parentDirectory={}, \n newDirectory={}", parentDirectory, newDirectory);
         parseAllFiles(parentDirectory, newDirectory);
+
     }
 
-    public static void parseAllFiles(String parentDirectory, String newDirectory) throws IOException {
+    private void parseAllFiles(String parentDirectory, String newDirectory) throws IOException {
         File[] filesInDirectory = new File(parentDirectory).listFiles();
         File dir = new File(newDirectory);
         dir.mkdirs();
@@ -54,7 +60,7 @@ public class XMLReader {
         }
     }
 
-    private static boolean parsingXML(String nameFile) {
+    private boolean parsingXML(String nameFile) {
         boolean flag = false;
         try {
             File file = new File(nameFile);
@@ -78,44 +84,78 @@ public class XMLReader {
         return flag;
     }
 
-    private static boolean checkAndParseXML(Document doc, boolean flag) {
+    private boolean checkAndParseXML(Document doc, boolean flag) {
         try {
             NodeList nodeLst = doc.getElementsByTagName("Entry");
             for (int s = 0; s < nodeLst.getLength(); s++) {
                 Node fstNode = nodeLst.item(s);
                 if (fstNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element element = (Element) fstNode;
-
-                    NodeList contentNmElmntLst = element.getElementsByTagName("content");
-                    Element contentNmElmnt = (Element) contentNmElmntLst.item(0);
-                    NodeList contentNm = contentNmElmnt.getChildNodes();
-                    String content = ((Node) contentNm.item(0)).getNodeValue();
-                    if (content.length() < 1024) {
-                        log.debug("Content : {}", content);
+                    String content = getBody(element, "content");
+                    flag = checkContent(content);
+                    if (!flag) {
+                        String creationDate = getBody(element, "creationDate");
+                        flag = checkCreationDate(creationDate);
                     } else {
-                        log.debug("Cтрока content длиной больше 1024 символов!");
-                        flag = true;
-                        break;
-                    }
-
-                    NodeList dateNmElmntLst = element.getElementsByTagName("creationDate");
-                    Element dateNmElmnt = (Element) dateNmElmntLst.item(0);
-                    NodeList dateNm = dateNmElmnt.getChildNodes();
-                    String creationDate = ((Node) dateNm.item(0)).getNodeValue();
-                    log.debug("Creation date : {}", creationDate);
-                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    dateFormat.setLenient(false);
-                    try {
-                        log.debug("Date VALID is: {}", dateFormat.format(dateFormat.parse(creationDate)));
-                    } catch (Exception e) {
-                        log.debug("Неккоректный формат даты создания записи!");
-                        flag = true;
                         break;
                     }
                 }
             }
         } catch (Exception e) {
             log.error("Error checkAndParseXML: {}.", e.toString());
+            flag = true;
+        }
+        return flag;
+    }
+
+    /**
+     * Получение значения тела передаваемого тега
+     *
+     * @param element
+     * @param tagName
+     * @return
+     */
+    private String getBody(Element element, String tagName) {
+        NodeList nmElmntLst = element.getElementsByTagName(tagName);
+        Element nmElmnt = (Element) nmElmntLst.item(0);
+        NodeList contentNm = nmElmnt.getChildNodes();
+        String content = ((Node) contentNm.item(0)).getNodeValue();
+        return content;
+    }
+
+    /**
+     * Проверка <content>
+     *
+     * @param content
+     * @return
+     */
+    private boolean checkContent(String content) {
+        boolean flag = false;
+        log.debug("Content : {}", content);
+        if (content.length() < 1024) {
+            log.debug("Content length < 1024");
+        } else {
+            log.debug("Cтрока content длиной больше 1024 символов!");
+            flag = true;
+        }
+        return flag;
+    }
+
+    /**
+     * Проверка <creationDate>
+     *
+     * @param creationDate
+     * @return
+     */
+    private boolean checkCreationDate(String creationDate) {
+        boolean flag = false;
+        log.debug("Creation date : {}", creationDate);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        dateFormat.setLenient(false);
+        try {
+            log.debug("Date VALID is: {}", dateFormat.format(dateFormat.parse(creationDate)));
+        } catch (Exception e) {
+            log.debug("Неккоректный формат даты создания записи!");
             flag = true;
         }
         return flag;
