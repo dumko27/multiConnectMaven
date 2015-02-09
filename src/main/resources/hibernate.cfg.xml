@@ -23,7 +23,7 @@
 
         <!-- Annotated entity classes -->
 <!--        <mapping class="com.multiconnect.Entry"/>-->
-        <mapping resource="com.multiconnect.mapping/Entry.hbm.xml"/>
+        <mapping resource="com/multiconnect/mapping/Entry.hbm.xml"/>
         
     </session-factory>
 </hibernate-configuration>
