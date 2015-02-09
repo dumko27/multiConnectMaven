@@ -1,149 +1,114 @@
-[main] DEBUG com.multiconnect.Main  - parentDirectory=/home/DN270791NDI/NetBeansProjects/NetBeans 8.0/multiConnectMaven/TestXML, 
- newDirectory=/home/DN270791NDI/NetBeansProjects/NetBeans 8.0/multiConnectMaven/GoodXML
-[main] DEBUG com.multiconnect.Main  - dir=/home/DN270791NDI/NetBeansProjects/NetBeans 8.0/multiConnectMaven/GoodXML
-[main] DEBUG com.multiconnect.Main  - Name file=testEntry99.xml
+[main] DEBUG com.multiconnect.Main  - parentDirectory=C:\Users\�������\Documents\NetBeansProjects\multiConnectMaven/TestXML, 
+ newDirectory=C:\Users\�������\Documents\NetBeansProjects\multiConnectMaven/GoodXML
+[main] DEBUG com.multiconnect.Main  - dir=C:\Users\�������\Documents\NetBeansProjects\multiConnectMaven\GoodXML
+[main] DEBUG com.multiconnect.Main  - Name directory=SubFolder
+[main] DEBUG com.multiconnect.Main  - dir=C:\Users\�������\Documents\NetBeansProjects\multiConnectMaven\GoodXML
+[main] DEBUG com.multiconnect.Main  - Name file=InsertedTestEntry.xml
 [main] DEBUG com.multiconnect.Main  - Root element: Entry
 [main] DEBUG com.multiconnect.Main  - flag=false
-[main] DEBUG com.multiconnect.Main  - Content : Содержимое записи1
+[main] DEBUG com.multiconnect.Main  - Content : ���������� ������ InsertedTestEntry 
 [main] DEBUG com.multiconnect.Main  - Content length < 1024
-[main] DEBUG com.multiconnect.Main  - Creation date : 9999-12-32 00:00:00
-[main] DEBUG com.multiconnect.Main  - Неккоректный формат даты создания записи!
-[main] DEBUG com.multiconnect.Main  - File is NOT moved
-[main] DEBUG com.multiconnect.Main  - Name file=testNoCorrectContent.xml
-[main] DEBUG com.multiconnect.Main  - Root element: Entry
-[main] DEBUG com.multiconnect.Main  - flag=false
-[main] DEBUG com.multiconnect.Main  - Content : Тестовое задание (Java)
-Необходимо разработать Java-приложение, которое мониторит заданную директорию на
-наличие файлов определенного XML-формата. При обнаружении файла подходящего
-формата приложение сохраняет его содержимое в аналогичную по структуре таблицу в
-PostgreSQL и перемещает файл в каталог обработанных файлов.
-Формат входного XML-файла:
-Таблица должен содержать все поля XML-файла и идентификатор записи.
-Приложение должно:
-• обратабывать ошибки (неверный формат файла, циклические симлинки,
-восстанавливаться после некорректного останова, выдавать понятные ошибки при
-недоступности базы и тд)
-• быть производительным (файлов может быть миллионы, поэтому необходимо
-использовать пулы потоков и соединений)
-• автоматически собираться, используя gradle. Результатом сборки должен быть готовый к
-использованию дистрибутив
-• содержать файл readme с инструкцией по сборке и развертыванию приложения
-• содержать скрипты для запуска на Win и *nix-платформах
-• содержать sql-скрипт создания таблицы
-UML-диаграммы и юнит-тесты необязательны, но приветствуются.
-Языки, библиотеки, фреймворки: Java 7, PostgreSQL 9.4, Gradle, Log4j(Logback),
-JUnit(TestNG), Hibernate(JDBC). В скобках указаны альтернативные технлогии, которыми
-можно пользоваться для выполнения задания.
-Календарный срок выполнения: 1 неделя.
-
-[main] DEBUG com.multiconnect.Main  - Cтрока content длиной больше 1024 символов!
-[main] DEBUG com.multiconnect.Main  - File is NOT moved
-[main] DEBUG com.multiconnect.Main  - Name file=testEntry.xml
-[main] DEBUG com.multiconnect.Main  - Root element: Entry
-[main] DEBUG com.multiconnect.Main  - flag=false
-[main] DEBUG com.multiconnect.Main  - Content : Содержимое записи testEntry
-[main] DEBUG com.multiconnect.Main  - Content length < 1024
-[main] DEBUG com.multiconnect.Main  - Creation date : 2011-01-01 00:00:00
-[main] DEBUG com.multiconnect.Main  - Date VALID is: 2011-01-01 00:00:00
-[main] DEBUG com.multiconnect.Main  - entry: Entry {content=Содержимое записи testEntry, creationDate=Sat Jan 01 00:00:00 EET 2011}.
-[main] DEBUG com.multiconnect.dao.impl.EntryDAOImpl  - addEnties entry=Entry {content=Содержимое записи testEntry, creationDate=Sat Jan 01 00:00:00 EET 2011}.
+[main] DEBUG com.multiconnect.Main  - Creation date : 2012-12-12 12:12:12
+[main] DEBUG com.multiconnect.Main  - Date VALID is: 2012-12-12 12:12:12
+[main] DEBUG com.multiconnect.Main  - entry: Entry {content=���������� ������ InsertedTestEntry , creationDate=Wed Dec 12 12:12:12 EET 2012}.
+[main] DEBUG com.multiconnect.dao.impl.EntryDAOImpl  - addEnties entry=Entry {content=���������� ������ InsertedTestEntry , creationDate=Wed Dec 12 12:12:12 EET 2012}.
 [main] DEBUG org.jboss.logging  - Logging Provider: org.jboss.logging.Log4jLoggerProvider
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration boolean -> org.hibernate.type.BooleanType@fc912
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration boolean -> org.hibernate.type.BooleanType@fc912
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@fc912
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@1d2e04b
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration true_false -> org.hibernate.type.TrueFalseType@ac3205
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration yes_no -> org.hibernate.type.YesNoType@17256bc
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration byte -> org.hibernate.type.ByteType@e34772
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration byte -> org.hibernate.type.ByteType@e34772
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@e34772
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration character -> org.hibernate.type.CharacterType@f66eac
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration char -> org.hibernate.type.CharacterType@f66eac
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@f66eac
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration short -> org.hibernate.type.ShortType@14038ba
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration short -> org.hibernate.type.ShortType@14038ba
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@14038ba
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration integer -> org.hibernate.type.IntegerType@1ee1bee
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration int -> org.hibernate.type.IntegerType@1ee1bee
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@1ee1bee
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration long -> org.hibernate.type.LongType@da628b
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration long -> org.hibernate.type.LongType@da628b
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Long -> org.hibernate.type.LongType@da628b
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration float -> org.hibernate.type.FloatType@1f5b5fd
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration float -> org.hibernate.type.FloatType@1f5b5fd
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@1f5b5fd
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration double -> org.hibernate.type.DoubleType@1d179fb
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration double -> org.hibernate.type.DoubleType@1d179fb
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@1d179fb
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@84b3bb
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@84b3bb
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@119c2af
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@119c2af
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration string -> org.hibernate.type.StringType@58d1a4
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.String -> org.hibernate.type.StringType@58d1a4
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration nstring -> org.hibernate.type.StringNVarcharType@180e475
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@16e5e75
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration url -> org.hibernate.type.UrlType@5794b3
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.net.URL -> org.hibernate.type.UrlType@5794b3
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration date -> org.hibernate.type.DateType@c6693e
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.sql.Date -> org.hibernate.type.DateType@c6693e
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration time -> org.hibernate.type.TimeType@1704be4
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@1704be4
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration timestamp -> org.hibernate.type.TimestampType@1d93fe7
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@1d93fe7
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@1d93fe7
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@18628c8
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration calendar -> org.hibernate.type.CalendarType@2b1b5f
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@2b1b5f
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@2b1b5f
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@35b2c1
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration locale -> org.hibernate.type.LocaleType@c30cbb
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@c30cbb
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration currency -> org.hibernate.type.CurrencyType@1b533b0
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@1b533b0
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration timezone -> org.hibernate.type.TimeZoneType@1644a50
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@1644a50
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration class -> org.hibernate.type.ClassType@ab4338
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@ab4338
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@1652035
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@1652035
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@1f5c2c7
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration pg-uuid -> org.hibernate.type.PostgresUUIDType@124212
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration binary -> org.hibernate.type.BinaryType@589127
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration byte[] -> org.hibernate.type.BinaryType@589127
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration [B -> org.hibernate.type.BinaryType@589127
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@17032da
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@17032da
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@17032da
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration image -> org.hibernate.type.ImageType@1c45dbe
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration characters -> org.hibernate.type.CharArrayType@16d0a8c
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration char[] -> org.hibernate.type.CharArrayType@16d0a8c
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration [C -> org.hibernate.type.CharArrayType@16d0a8c
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@1565474
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@1565474
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@1565474
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration text -> org.hibernate.type.TextType@19ea44c
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration ntext -> org.hibernate.type.NTextType@143bc0f
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration blob -> org.hibernate.type.BlobType@befdb3
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@befdb3
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@11151ba
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration clob -> org.hibernate.type.ClobType@11db910
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@11db910
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration nclob -> org.hibernate.type.NClobType@166e0c3
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@166e0c3
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@fbbad2
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@b01778
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration serializable -> org.hibernate.type.SerializableType@17f212b
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration object -> org.hibernate.type.ObjectType@17e32c7
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@17e32c7
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@15ca208
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@91d382
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@1d53277
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@1e428b2
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@2bec39
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@1a19b81
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@e832fd
-[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@6b8cd1
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration boolean -> org.hibernate.type.BooleanType@1615099
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration boolean -> org.hibernate.type.BooleanType@1615099
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@1615099
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@1be847c
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration true_false -> org.hibernate.type.TrueFalseType@1a1cd57
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration yes_no -> org.hibernate.type.YesNoType@b44e46
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration byte -> org.hibernate.type.ByteType@ac736f
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration byte -> org.hibernate.type.ByteType@ac736f
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@ac736f
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration character -> org.hibernate.type.CharacterType@175e2db
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration char -> org.hibernate.type.CharacterType@175e2db
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@175e2db
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration short -> org.hibernate.type.ShortType@1f4c3
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration short -> org.hibernate.type.ShortType@1f4c3
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@1f4c3
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration integer -> org.hibernate.type.IntegerType@1a4555e
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration int -> org.hibernate.type.IntegerType@1a4555e
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@1a4555e
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration long -> org.hibernate.type.LongType@aa6d82
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration long -> org.hibernate.type.LongType@aa6d82
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Long -> org.hibernate.type.LongType@aa6d82
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration float -> org.hibernate.type.FloatType@a570f
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration float -> org.hibernate.type.FloatType@a570f
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@a570f
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration double -> org.hibernate.type.DoubleType@81f4dc
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration double -> org.hibernate.type.DoubleType@81f4dc
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@81f4dc
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@8da962
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@8da962
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@1e89d68
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@1e89d68
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration string -> org.hibernate.type.StringType@d17bee
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.String -> org.hibernate.type.StringType@d17bee
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration nstring -> org.hibernate.type.StringNVarcharType@1588809
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@c77c2e
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration url -> org.hibernate.type.UrlType@37c6dc
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.net.URL -> org.hibernate.type.UrlType@37c6dc
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration date -> org.hibernate.type.DateType@e5c649
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.sql.Date -> org.hibernate.type.DateType@e5c649
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration time -> org.hibernate.type.TimeType@177140b
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@177140b
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration timestamp -> org.hibernate.type.TimestampType@104a311
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@104a311
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@104a311
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@186b085
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration calendar -> org.hibernate.type.CalendarType@1cd475
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@1cd475
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@1cd475
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@18ed237
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration locale -> org.hibernate.type.LocaleType@147d241
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@147d241
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration currency -> org.hibernate.type.CurrencyType@1e1023e
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@1e1023e
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration timezone -> org.hibernate.type.TimeZoneType@4afd8d
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@4afd8d
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration class -> org.hibernate.type.ClassType@4c0bc4
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@4c0bc4
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@bc508c
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@bc508c
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@fb2c38
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration pg-uuid -> org.hibernate.type.PostgresUUIDType@14caa3f
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration binary -> org.hibernate.type.BinaryType@1102e87
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration byte[] -> org.hibernate.type.BinaryType@1102e87
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration [B -> org.hibernate.type.BinaryType@1102e87
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@1444d75
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@1444d75
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@1444d75
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration image -> org.hibernate.type.ImageType@215eee
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration characters -> org.hibernate.type.CharArrayType@168debd
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration char[] -> org.hibernate.type.CharArrayType@168debd
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration [C -> org.hibernate.type.CharArrayType@168debd
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@1082746
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@1082746
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@1082746
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration text -> org.hibernate.type.TextType@11d2887
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration ntext -> org.hibernate.type.NTextType@42bbf4
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration blob -> org.hibernate.type.BlobType@c42916
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@c42916
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@a71081
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration clob -> org.hibernate.type.ClobType@1a92922
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@1a92922
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration nclob -> org.hibernate.type.NClobType@34d63f
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@34d63f
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@340fab
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@b39c39
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration serializable -> org.hibernate.type.SerializableType@864e92
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration object -> org.hibernate.type.ObjectType@16216b3
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@16216b3
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@c0663d
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@1223dd8
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@c6a292
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@140d5f0
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@a4a92b
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@5a99da
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@1f37ef1
+[main] DEBUG org.hibernate.type.BasicTypeRegistry  - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@1ccaa
 [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
 [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.15.Final}
 [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
@@ -170,8 +135,8 @@ JUnit(TestNG), Hibernate(JDBC). В скобках указаны альтерн�
 [main] DEBUG org.hibernate.internal.util.xml.DTDEntityResolver  - Located [http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd] in classpath
 [main] DEBUG org.hibernate.cfg.Configuration  - hibernate.connection.driver_class=org.postgresql.Driver
 [main] DEBUG org.hibernate.cfg.Configuration  - hibernate.connection.url=jdbc:postgresql://localhost:5432/entryTest
-[main] DEBUG org.hibernate.cfg.Configuration  - hibernate.connection.username=dumko27
-[main] DEBUG org.hibernate.cfg.Configuration  - hibernate.connection.password=123456789
+[main] DEBUG org.hibernate.cfg.Configuration  - hibernate.connection.username=postgres
+[main] DEBUG org.hibernate.cfg.Configuration  - hibernate.connection.password=qwaszx27
 [main] DEBUG org.hibernate.cfg.Configuration  - hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 [main] DEBUG org.hibernate.cfg.Configuration  - show_sql=true
 [main] DEBUG org.hibernate.cfg.Configuration  - hibernate.hbm2ddl.auto=create-drop
