@@ -1,5 +1,6 @@
 package com.multiconnect;
 
+import com.multiconnect.mapping.Entry;
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -22,17 +23,18 @@ import org.w3c.dom.NodeList;
  *
  * @author Novikov Dmitry
  */
-public class XMLReader {
+public class Main {
 
-    static final Logger log = LoggerFactory.getLogger(XMLReader.class);
+    static final Logger log = LoggerFactory.getLogger(Main.class);
+    private final String FORMAT_DATE = "yyyy-MM-dd HH:mm:ss";
     List<Entry> listEntry = new ArrayList<>();
 
     public static void main(String argv[]) throws IOException {
-        XMLReader xMLReader = new XMLReader();
+        Main xMLReader = new Main();
         xMLReader.runExample();
     }
 
-    public void runExample() throws IOException {
+    private void runExample() throws IOException {
         PropertyConfigurator.configure("log4j.properties");
         File file = new File(System.getProperty("user.dir"));
         String parentDirectory = file.getAbsolutePath() + "/TestXML",
@@ -43,6 +45,13 @@ public class XMLReader {
 
     }
 
+    /**
+     * Перемещение файлов в каталог обработанных файлов
+     * 
+     * @param parentDirectory Директория в которой находятся файлы для мониторинга.
+     * @param newDirectory Каталог обработанных файлов.
+     * @throws IOException 
+     */
     private void parseAllFiles(String parentDirectory, String newDirectory) throws IOException {
         File[] filesInDirectory = new File(parentDirectory).listFiles();
         File dir = new File(newDirectory);
@@ -105,8 +114,11 @@ public class XMLReader {
                         break;
                     }
                     if (!flag) {
-                        Entry entry = new Entry(content, creationDate);
+                        Entry entry = new Entry(content, new SimpleDateFormat(FORMAT_DATE).parse(creationDate));
                         log.debug("entry: {}.", entry);
+                        
+                        Factory.getInstance().getEntryDAO().addEnties(entry);
+                        
                         listEntry.add(entry);
                         log.debug("listEntry: {}.", listEntry);
                     }
@@ -135,7 +147,7 @@ public class XMLReader {
     }
 
     /**
-     * Проверка <content>
+     * Проверка тела тега <content>
      *
      * @param content
      * @return
@@ -153,7 +165,7 @@ public class XMLReader {
     }
 
     /**
-     * Проверка <creationDate>
+     * Проверка тела тега <creationDate>
      *
      * @param creationDate
      * @return
@@ -161,7 +173,7 @@ public class XMLReader {
     private boolean checkCreationDate(String creationDate) {
         boolean flag = false;
         log.debug("Creation date : {}", creationDate);
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat(FORMAT_DATE);
         dateFormat.setLenient(false);
         try {
             log.debug("Date VALID is: {}", dateFormat.format(dateFormat.parse(creationDate)));
