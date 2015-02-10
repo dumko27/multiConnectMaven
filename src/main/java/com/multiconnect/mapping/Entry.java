@@ -2,12 +2,7 @@ package com.multiconnect.mapping;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import org.hibernate.annotations.Type;
+import javax.persistence.*;
 
 /**
  * POJO для тела тега <Entry>.
@@ -15,10 +10,11 @@ import org.hibernate.annotations.Type;
  * @author Novikov Dmitry
  */
 @Entity
+@Table(name = "Entries")
 public class Entry implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     /**
      * Cтрока длиной до 1024 символов.
@@ -29,7 +25,7 @@ public class Entry implements Serializable {
      * Дата создания записи.
      */
     @Column(name = "creationDate")
-    @Type(type="date")
+    @Temporal(value = TemporalType.DATE)
     private Date creationDate;
 
     public Entry() {

@@ -106,7 +106,9 @@ public class Main {
                         break;
                     }
                     if (!flag) {
-                        Entry entry = new Entry(content, new SimpleDateFormat(FORMAT_DATE).parse(creationDate));
+                        Entry entry = new Entry();
+                        entry.setContent(content);
+                        entry.setCreationDate(new SimpleDateFormat(FORMAT_DATE).parse(creationDate));
                         log.debug("entry: {}.", entry);
                         
                         Factory.getInstance().getEntryDAO().addEnties(entry);

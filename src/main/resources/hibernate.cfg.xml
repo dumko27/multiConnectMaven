@@ -9,7 +9,7 @@
         <!-- Connection settings -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/entryTest</property>
-        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.username">dumko27</property>
         <property name="hibernate.connection.password">qwaszx27</property>
 
         <!-- SQL dialect -->
@@ -20,10 +20,12 @@
 
         <!-- Drop and re-create all database on startup -->
         <property name="hibernate.hbm2ddl.auto">create-drop</property>
+        <property name="hibernate.hbm2ddl.auto">validate</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Annotated entity classes -->
-<!--        <mapping class="com.multiconnect.Entry"/>-->
-        <mapping resource="com/multiconnect/mapping/Entry.hbm.xml"/>
+        <mapping class="com.multiconnect.mapping.Entry"/>
+<!--        <mapping resource="com/multiconnect/mapping/Entry.hbm.xml"/>-->
         
     </session-factory>
 </hibernate-configuration>

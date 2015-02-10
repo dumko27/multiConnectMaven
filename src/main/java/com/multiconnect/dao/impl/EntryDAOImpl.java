@@ -34,6 +34,7 @@ public class EntryDAOImpl implements EntryDAO {
         }
     }
 
+    @Override
     public Collection getEntries() throws SQLException {
         Session session = null;
         List entries = new ArrayList<Entry>();
