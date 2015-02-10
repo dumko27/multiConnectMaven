@@ -1,14 +1,11 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC
-	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.multiconnect.mapping.Entry" table="Entry">
-        <id name="id"                 column="id"           type="java.lang.Integer">
-            <generator class="increment"/>                       
-        </id>
-        <property name="content"      column="content"      type="java.lang.String"/>
-        <property name="creationDate" column="creationDate" type="java.util.Date"/>
-    </class>
+  <class name="com.multiconnect.mapping.Entry" table="entries">
+    <id column="id" name="id" type="java.lang.Integer">
+      <generator class="increment"/>
+    </id>
+    <property column="content" name="content" type="java.lang.String"/>
+    <property column="date" name="date" type="java.util.Date"/>
+  </class>
 </hibernate-mapping>

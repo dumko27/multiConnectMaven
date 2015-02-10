@@ -94,15 +94,15 @@ public class CheckAndParseXML {
                     Element element = (Element) fstNode;
                     String content = getBody(element, "content");
                     flag = checkContent(content);
-                    String creationDate = null;
+                    String date = null;
                     if (!flag) {
-                        creationDate = getBody(element, "creationDate");
-                        flag = checkCreationDate(creationDate);
+                        date = getBody(element, "date");
+                        flag = checkDate(date);
                     } else {
                         break;
                     }
                     if (!flag) {
-                        Entry entry = workWithSQL(content, creationDate);
+                        Entry entry = workWithSQL(content, date);
                         listEntry.add(entry);
                         log.debug("listEntry: {}.", listEntry);
                     }
@@ -115,10 +115,10 @@ public class CheckAndParseXML {
         return flag;
     }
 
-    private Entry workWithSQL(String content, String creationDate) throws ParseException, SQLException {
+    private Entry workWithSQL(String content, String date) throws ParseException, SQLException {
         Entry entry = new Entry();
         entry.setContent(content);
-        entry.setCreationDate(new SimpleDateFormat(FORMAT_DATE).parse(creationDate));
+        entry.setDate(new SimpleDateFormat(FORMAT_DATE).parse(date));
         log.debug("workWithSQL entry: {}.", entry);
         Factory.getInstance().getEntryDAO().addEnties(entry);
         
@@ -161,18 +161,18 @@ public class CheckAndParseXML {
     }
 
     /**
-     * Проверка тела тега <creationDate>
+     * Проверка тела тега <date>
      *
-     * @param creationDate
+     * @param date
      * @return
      */
-    private boolean checkCreationDate(String creationDate) {
+    private boolean checkDate(String date) {
         boolean flag = false;
-        log.debug("Creation date : {}", creationDate);
+        log.debug("Creation date : {}", date);
         DateFormat dateFormat = new SimpleDateFormat(FORMAT_DATE);
         dateFormat.setLenient(false);
         try {
-            log.debug("Date VALID is: {}", dateFormat.format(dateFormat.parse(creationDate)));
+            log.debug("Date VALID is: {}", dateFormat.format(dateFormat.parse(date)));
         } catch (Exception e) {
             log.debug("Неккоректный формат даты создания записи!");
             flag = true;

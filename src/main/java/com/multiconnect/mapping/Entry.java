@@ -10,12 +10,13 @@ import javax.persistence.*;
  * @author Novikov Dmitry
  */
 @Entity
-@Table(name = "Entries")
+@Table(name = "entries")
 public class Entry implements Serializable {
 
     @Id
+    @Column(name ="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private int id;
     /**
      * Cтрока длиной до 1024 символов.
      */
@@ -24,23 +25,23 @@ public class Entry implements Serializable {
     /**
      * Дата создания записи.
      */
-    @Column(name = "creationDate")
+    @Column(name = "date")
     @Temporal(value = TemporalType.DATE)
-    private Date creationDate;
+    private Date date;
 
     public Entry() {
     }
 
-    public Entry(String content, Date creationDate) {
+    public Entry(String content, Date date) {
         this.content = content;
-        this.creationDate = creationDate;
+        this.date = date;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -52,17 +53,17 @@ public class Entry implements Serializable {
         this.content = content;
     }
 
-    public Date getCreationDate() {
-        return creationDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Override
     public String toString() {
-        return "Entry {" + "content=" + content + ", creationDate=" + creationDate + '}';
+        return "Entry {" + "content=" + content + ", date=" + date + '}';
     }
 
 }
