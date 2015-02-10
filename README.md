@@ -3,12 +3,29 @@
 Настроить сервер на username - postgres
 и password - qwaszx27.
 
-Создать БД entrytest
+Создать БД entryTest
 Скрипт:
-
+CREATE DATABASE "entryTest"
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'Russian_Russia.1251'
+       LC_CTYPE = 'Russian_Russia.1251'
+       CONNECTION LIMIT = -1;
 
 Создать таблицу entries:
 Скрипт:
+CREATE TABLE entries
+(
+  id bigserial NOT NULL,
+  content text,
+  date date
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE entries
+  OWNER TO postgres;
 
 Импортировать проект себе в IDE.
 Выполнить "Clean and build", чтобы проекту подтянулись нужные ему зависимости.
