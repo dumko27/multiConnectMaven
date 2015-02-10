@@ -15,7 +15,7 @@ public class Entry implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
     /**
      * Cтрока длиной до 1024 символов.
      */
@@ -36,11 +36,11 @@ public class Entry implements Serializable {
         this.creationDate = creationDate;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

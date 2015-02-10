@@ -3,6 +3,7 @@ package com.multiconnect.dao;
 import com.multiconnect.mapping.Entry;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -17,5 +18,5 @@ public interface EntryDAO {
      */
     public void addEnties(Entry entry) throws SQLException;
     
-    public Collection getEntries()  throws SQLException;
+    public List<Entry> getEntries()  throws SQLException;
 }

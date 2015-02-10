@@ -35,9 +35,9 @@ public class EntryDAOImpl implements EntryDAO {
     }
 
     @Override
-    public Collection getEntries() throws SQLException {
+    public List<Entry> getEntries() throws SQLException {
         Session session = null;
-        List entries = new ArrayList<Entry>();
+        List<Entry> entries = new ArrayList<Entry>();
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             entries = session.createCriteria(Entry.class).list();
